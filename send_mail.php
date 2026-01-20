@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
-    $to = "ton.email@exemple.com"; // ← Mets ton email ici
+    $to = "fransiasiangany30@gmail.com"; // 
     $subject = "Message Portfolio de $nom";
     $body = "Nom: $nom\nEmail: $email\n\nMessage:\n$message";
     $headers = "From: $email";
@@ -15,4 +15,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "error";
     }
 }
+
 ?>
