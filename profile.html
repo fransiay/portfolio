@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcours </title>
+    <link rel="stylesheet" href="profile.css">
+
+</head>
+
+
+<body>
+    <div id="fireflies"></div>
+
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+
+    <div class="vertical-title">PARCOURS</div>
+
+    <!-- menu -->
+    <div class="dots" onclick="togglePanel()">•••</div>
+
+    <div id="Panel">
+        <button onclick="togglePanel()">✕</button>
+        <nav class="nav-right">
+            <a href="index.html">Accueil</a>
+            <a href="hero.html">A propos</a>
+            <a href="competences.html">competences</a>
+            <a href="veuille.html">Veille technologique</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+    </div>
+
+    <div class="filter-bar">
+
+        <button class="filter-btn active" onclick="filter('formation', this)">Formation</button>
+        <button class="filter-btn" onclick="filter('experience', this)">Expérience Professionnelle</button>
+        <button class="filter-btn" onclick="filter('realisations', this)">Réalisations</button>
+    </div>
+
+
+    <!--formation  -->
+
+    <section class="main-content">
+
+
+        <div class="category formation show">
+            <h1 class="title">Formation</h1>
+
+            <h2 class="subtitle">BTS SIO option SLAM</h2>
+            <p>D'octobre 2023 à juillet 2026 — Scholia</p>
+            <ul>
+                <li>BTS Services Informatiques aux Organisations, option SLAM</li>
+                <li>Développement d'applications et gestion de bases de données</li>
+            </ul>
+            <button class="real-btn">Voir plus</button>
+
+
+            <h2 class="subtitle">Licence 1 en Génie Informatique et Réseau (GIR)</h2>
+            <p>D'octobre 2023 à juillet 2024 — Escat</p>
+            <ul>
+                <li>Formation en réseaux et infrastructure informatique</li>
+                <li>Apprentissage des systèmes et protocoles réseax</li>
+            </ul>
+            <button class="real-btn">Voir plus</button>
+
+
+            <h2 class="subtitle">Baccalauréat scientifique</h2>
+            <p>De 2022 à 2023 — Institut Saint Bénie</p>
+            <button class="real-btn">Voir plus</button>
+
+
+        </div>
+
+        <!-- experience -->
+
+        <div class="category experience show">
+            <div id="fireflies"></div>
+            <h1 class="title">Expérience Professionnelle</h1>
+
+            <h2 class="subtitle">Stagiaire développeuse web</h2>
+            <p>2025 — Imperiatec</p>
+            <ul>
+                <li>Contribuer à la mise à jour du site internet de l'entreprise</li>
+                <li>Participer à l'optimisation SEO</li>
+                <li>Réaliser des tests, corriger des bugs</li>
+                <li>Assister à la gestion du réseau</li>
+            </ul>
+            <button class="real-btn">Voir plus</button>
+
+
+            <h2 class="subtitle">Stagiaire développeuse web et UI/UX Designer</h2>
+            <p>2025 — Busness privée</p>
+            <ul>
+                <li>Participation à un projet de site vitrine en équipe : intégration HTML/CSS à partir des maquettes
+                </li>
+                <li>Contribution au design UI des pages principales (accueil, contact, etc.)</li>
+                <li>Collaboration avec l'équipe de développement pour tester et améliorer le responsive design</li>
+                <li>Utilisation de Figma pour concevoir des interfaces modernes adaptées aux besoins des clients</li>
+            </ul>
+            <button class="real-btn">Voir plus</button>
+
+        </div>
+
+        <!-- réalisation -->
+
+        <h1>Mes Réalisations</h1>
+        <div id="fireflies"></div>
+
+        <div class="realisations-grid">
+            <div class="real-card">
+                <div class="real-img"></div>
+                <h3 class="real-title">Nkuta</h3>
+                <p>site de restaurant avec une varieté de savoir</p>
+                <p>html,css,JavaScript</p>
+                <button class="real-btn">Voir plus</button>
+
+            </div>
+            <div class="real-card">
+                <div class="real-img"></div>
+                <h3 class="real-title">Ntanku</h3>
+                <p>Application USSD de paiement mobile</p>
+                <p>Python</p>
+                <button class="real-btn">Voir plus</button>
+            </div>
+            <div class="real-card">
+                <div class="real-img"></div>
+                <h3 class="real-title">Site de Voyage</h3>
+                <p>Html,Css,JavaScript</p>
+                <button class="real-btn">Voir plus</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="profil.js"></script>
+
+</body>
+
+</html>

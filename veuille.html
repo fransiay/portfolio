@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veille Technologique</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0a, #1b1b1b);
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            padding: 40px;
+        }
+
+        /* ===== MENU ===== */
+        .dots {
+            position: fixed;
+            top: 40px;
+            right: 45px;
+            width: 55px;
+            height: 55px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 1.5rem;
+            z-index: 1000;
+        }
+
+        .dots:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        #Panel {
+            position: fixed;
+            top: 0;
+            right: -330px;
+            width: 300px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 20px;
+            transition: right 0.3s ease;
+            z-index: 999;
+        }
+
+        #Panel.active {
+            right: 0;
+        }
+
+        #Panel button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .nav-right {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .nav-right a {
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .nav-right a:hover,
+        .nav-right a.active {
+            color: white;
+        }
+
+        /* ===== CONTENU ===== */
+        .veille-techno {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .vt-title {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .vt-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.85;
+            margin-bottom: 40px;
+        }
+
+        .veille-blog,
+        .vt-content,
+        .sources-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 18px;
+            margin-bottom: 40px;
+            text-align: left;
+            line-height: 1.8rem;
+            font-size: 1.1rem;
+        }
+
+        h3 {
+            margin-top: 25px;
+            color: #aad0ff;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        /* ===== LIENS SOURCES UX ===== */
+        .sources-container a {
+            color: #aad0ff;
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            padding-right: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .sources-container a::after {
+            content: "↗";
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sources-container a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .sources-container a:hover::after {
+            transform: translate(3px, -3px);
+            opacity: 1;
+        }
+
+        .sources-container a:focus {
+            outline: 2px solid #aad0ff;
+            outline-offset: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dots" onclick="togglePanel()">•••</div>
+
+    <div id="Panel">
+        <button onclick="togglePanel()">✕</button>
+        <nav class="nav-right">
+            <a href="index.html">Accueil</a>
+            <a href="hero.html">A propos</a>
+            <a href="profile.html">Parcours</a>
+            <a href="competences.html">Compétences</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+
+    <section class="veille-techno">
+        <h1 class="vt-title">Veille Technologique</h1>
+        <h2 class="vt-subtitle">
+            La bio-informatique : quand le développement logiciel analyse le vivant
+        </h2>
+
+        <div class="veille-blog">
+            <p>
+                La bio-informatique est un domaine qui combine l’informatique,
+                les mathématiques et la biologie afin d’analyser de grandes quantités
+                de données biologiques comme l’ADN ou les protéines.
+            </p>
+        </div>
+
+        <div class="vt-content">
+            <h3>Pourquoi l’informatique est essentielle</h3>
+            <ul>
+                <li>Analyse de données génétiques massives</li>
+                <li>Automatisation de traitements scientifiques</li>
+                <li>Gestion de bases de données biologiques</li>
+                <li>Aide au diagnostic et à la recherche médicale</li>
+            </ul>
+
+            <h3>Technologies utilisées</h3>
+            <ul>
+                <li>Langages : Python, R, Java, C++</li>
+                <li>Bases de données génomiques</li>
+                <li>Algorithmes de comparaison de séquences</li>
+                <li>APIs et outils open source</li>
+                <li>Intelligence artificielle</li>
+            </ul>
+
+            <h3>Lien avec le BTS SIO option SLAM</h3>
+            <p>
+                Le développeur bio-informatique crée des scripts et applications
+                permettant l’analyse automatique de données biologiques.
+                Les compétences du BTS SIO SLAM sont directement mobilisées :
+                développement logiciel, traitement de données, automatisation
+                et bases de données.
+            </p>
+        </div>
+
+        <div class="sources-container">
+            <h3>Sources</h3>
+            <ul>
+                <li><a href="https://www.vidal.fr" target="_blank" rel="noopener noreferrer">Vidal – Base de données
+                        médicamenteuse</a></li>
+                <li><a href="https://www.has-sante.fr" target="_blank" rel="noopener noreferrer">Haute Autorité de
+                        Santé</a></li>
+                <li><a href="https://www.who.int" target="_blank" rel="noopener noreferrer">Organisation Mondiale de la
+                        Santé</a></li>
+                <li><a href="https://pubmed.ncbi.nlm.nih.gov" target="_blank" rel="noopener noreferrer">PubMed –
+                        Publications scientifiques</a></li>
+                <li><a href="https://biopython.org" target="_blank" rel="noopener noreferrer">BioPython</a></li>
+                <li><a href="https://www.ncbi.nlm.nih.gov" target="_blank" rel="noopener noreferrer">NCBI – Données
+                        génomiques</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        function togglePanel() {
+            document.getElementById("Panel").classList.toggle("active");
+        }
+    </script>
+
+</body>
+
+</html>

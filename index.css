@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+
+}
+
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url("images/bg.jpg") center/cover no-repeat;
+    filter: brightness(0.7);
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+.title {
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: 400;
+}
+
+.subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    margin-top: 20px;
+}
+
+.menu {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.7rem;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    color: #eceaea;
+    transform: translateY(-3px);
+}
+
+
+
+/*               LUCIOLES                    */
+
+#fireflies {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* Luciole dynamique */
+.firefly {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0.9;
+    animation: float 10s infinite ease-in-out, flicker 2s infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(40px, -60px) scale(1.3);
+    }
+
+    50% {
+        transform: translate(-40px, -20px) scale(0.9);
+    }
+
+    75% {
+        transform: translate(30px, 40px) scale(1.5);
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.1;
+        filter: brightness(1);
+    }
+
+    20% {
+        opacity: 1;
+        filter: brightness(2);
+    }
+
+    40% {
+        opacity: 0.3;
+        filter: brightness(1);
+    }
+
+    60% {
+        opacity: 0.8;
+        filter: brightness(1.5);
+    }
+
+    80% {
+        opacity: 0.25;
+        filter: brightness(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        filter: brightness(2);
+    }
+}
+
+
+/*       RESPONSIVETE   */
+
+
+@media (max-width: 768px) {
+
+    .content {
+        top: 15%;
+        padding: 0 20px;
+    }
+
+    .menu a {
+        font-size: 1.4rem;
+    }
+
+    .menu {
+        gap: 8px;
+    }
+
+    .hero {
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .content {
+        top: 18%;
+        padding: 0 15px;
+    }
+
+    .title {
+        font-size: 2.4rem;
+        line-height: 1.2;
+    }
+
+    .menu a {
+        font-size: 1.2rem;
+    }
+
+    .menu {
+        gap: 6px;
+    }
+
+    #fireflies .firefly {
+        transform: scale(0.7);
+        /* réduit les lucioles pour les petits écrans */
+    }
+}

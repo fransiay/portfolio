@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mes Compétences</title>
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            background: #0f0f0f;
+            color: white;
+
+            padding: 40px;
+            margin-left: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .skill-card {
+            background: #1a1a1a;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 0 15px #000;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px #94959555;
+        }
+
+        .skill-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #aad0ff;
+        }
+
+        .skill-list li {
+            margin-bottom: 6px;
+        }
+
+
+        .dots {
+            position: fixed;
+            top: 40px;
+            right: 45px;
+            width: 55px;
+            height: 55px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: transparent;
+            font-size: 1.5rem;
+            z-index: 1000;
+        }
+
+        .dots:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+        }
+
+        #Panel {
+            position: fixed;
+            top: 0;
+            right: -330px;
+            width: 300px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 20px;
+            box-shadow: -4px 0 12px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+        }
+
+        #Panel.active {
+            right: 0;
+        }
+
+        #Panel button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        #Panel button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .vertical-title {
+            position: fixed;
+            left: -1%;
+            top: 105%;
+            transform: translateY(-50%) rotate(-90deg);
+            transform-origin: left top;
+            font-size: 5.2rem;
+            letter-spacing: 3px;
+            font-weight: 250px;
+            opacity: 1;
+            user-select: none;
+            z-index: 1;
+        }
+
+        .nav-right {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .nav-right a {
+            font-size: 1.4rem;
+            text-decoration: none;
+            color: #999;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+        }
+
+        .nav-right a:hover,
+        .nav-right a.active {
+            color: white;
+        }
+
+        /*          RESPONSIVE HERO            */
+
+        @media (max-width: 992px) {
+
+            /* Image */
+            img {
+                width: 220px;
+                height: 220px;
+                top: 25%;
+                left: 10%;
+            }
+
+            /* Texte */
+            .center-text {
+                left: 65%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .center-text p {
+                font-size: 1.2rem;
+                line-height: 1.8rem;
+            }
+
+            .menu-left {
+                font-size: 5rem;
+                left: -8%;
+            }
+        }
+
+        /* TABLETTES & MOBILES */
+        @media (max-width: 768px) {
+
+            body {
+                overflow-y: auto;
+                /* permet le scroll */
+            }
+
+            /* Image */
+            img {
+                position: relative;
+                left: 50%;
+                top: 20px;
+                transform: translateX(-50%);
+                width: 180px;
+                height: 180px;
+            }
+
+            /* Texte */
+            .center-text {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin-top: 20px;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .center-text p {
+                font-size: 1.1rem;
+                line-height: 1.7rem;
+            }
+
+            /* Menu vertical */
+            .menu-left {
+                font-size: 3rem;
+                left: -20%;
+                top: 98%;
+            }
+
+            /* Panel */
+            #Panel {
+                width: 230px;
+                right: -260px;
+            }
+
+            .nav-right a {
+                font-size: 1.4rem;
+            }
+
+            /* CURSEURS désactivés sur mobile pour éviter bugs tactiles */
+            .cursor,
+            .cursor-dot {
+                display: none;
+            }
+        }
+
+        /* PETITS TÉLÉPHONES (iPhone SE) */
+        @media (max-width: 480px) {
+
+            img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .center-text p {
+                font-size: 1rem;
+            }
+
+            .menu-left {
+                font-size: 2.4rem;
+                left: -25%;
+            }
+
+            .btn-icon,
+            .script {
+                padding: 6px 14px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="fireflies"></div>
+    <div class="vertical-title">COMPETENCES</div>
+
+    <!-- panel menu -->
+    <div class="dots" onclick="togglePanel()">•••</div>
+
+    <div id="Panel">
+        <button onclick="togglePanel()">✕</button>
+        <nav class="nav-right">
+            <a href="index.html">Accueil</a>
+            <a href="hero.html">A propos</a>
+            <a href="profile.html" class="active">Parcours</a>
+            <a href="veuille.html">Veille technologique</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+    </div>
+
+    <h1>Mes Compétences</h1>
+
+    <div class="skills-grid">
+        <!-- Développement -->
+        <div class="skill-card">
+            <h3 class="skill-title">Développement</h3>
+            <ul class="skill-list">
+                <li>HTML / CSS</li>
+                <li>JavaScript</li>
+                <li>Java</li>
+                <li>Python</li>
+                <li>SQL</li>
+            </ul>
+        </div>
+
+        <!-- Bases de Donnee -->
+        <div class="skill-card">
+            <h3 class="skill-title">Base De Donnée</h3>
+            <ul class="skill-list">
+                <li>My SQL</li>
+                <li>J Merise</li>
+            </ul>
+        </div>
+
+        <!-- Réseau & Systèmes -->
+        <div class="skill-card">
+            <h3 class="skill-title">Réseau & Systèmes</h3>
+            <ul class="skill-list">
+                <li>Linux (Commandes)</li>
+            </ul>
+        </div>
+
+        <!-- Outils -->
+        <div class="skill-card">
+            <h3 class="skill-title">Outils</h3>
+            <ul class="skill-list">
+                <li>Git / GitHub</li>
+                <li>VS Code</li>
+                <li>Figma</li>
+            </ul>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="profil.js"></script>
+    <script>
+        function togglePanel() {
+            document.getElementById("Panel").classList.toggle("active");
+        }
+    </script>
+</body>
+
+</html>
